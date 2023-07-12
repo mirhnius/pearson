@@ -39,6 +39,13 @@ def pearson_1d(x, y):
     # return a / (sqrt(b) * sqrt(c))
     # +++your code here+++
     # return
+    mc_x = x - np.mean(x)
+    mc_y = y - np.mean(y)
+    a = mc_x.dot(mc_y)
+    b = mc_x.dot(mc_x)
+    c = mc_y.dot(mc_y)
+
+    return a / (np.sqrt(b) * np.sqrt(c))
 
 
 def pearson_2d(x, Y):
@@ -65,3 +72,12 @@ def pearson_2d(x, Y):
     # return a / (sqrt(b) * sqrt(c))
     # +++your code here+++
     # return
+
+    mc_x = x - np.mean(x)
+    mc_Y = Y - np.mean(Y, axis=0)
+    a = mc_x.dot(mc_Y)
+    b = mc_x.dot(mc_x)
+    c = np.sum(mc_Y**2, axis=0)
+
+    return a / (np.sqrt(b) * np.sqrt(c))
+    
